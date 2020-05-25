@@ -1,14 +1,21 @@
-<?php 
 
 
-$con = mysqli_init (); mysqli_real_connect ( $con ,"bd-productos-iak.mysql.database.azure.com" , "iak@bd-productos-iak" , "irazema16051912." , "Equis" , 3306 );
-if (mysqli_connect_errno($con)) {
-die('Failed to connect to MySQL: '.mysqli_connect_error());
+<?php
+// PHP Data Objects(PDO) Sample Code:
+try {
+    $conn = new PDO("sqlsrv:server = tcp:productos2.database.windows.net,1433; Database = Equis", "karen", "{alan16051912.}");
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 }
-//Establishes the connection
+catch (PDOException $e) {
+    print("Error connecting to SQL Server.");
+    die(print_r($e));
+}
 
-
- ?>
+// SQL Server Extension Sample Code:
+$connectionInfo = array("UID" => "karen", "pwd" => "{alan16051912.}", "Database" => "Equis", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
+$serverName = "tcp:productos2.database.windows.net,1433";
+$conn = sqlsrv_connect($serverName, $connectionInfo);
+?>
 
 
 <!DOCTYPE html>
