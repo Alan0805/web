@@ -1,7 +1,7 @@
 
 <?php
 $serverName = "sqlsrv:server = tcp:productos2.database.windows.net,1433"; //serverName\instanceName, portNumber (por defecto es 1433)
-$connectionInfo = array( "Database"=>"Equis", "UID"=>"karen", "PWD"=>"alan16051912.");
+$connectionInfo = array( "Database"=>"Equis","UID"=>"karen","PWD"=>"alan16051912.");
 $conn = sqlsrv_connect( $serverName, $connectionInfo);
 
 if( $conn ) {
